@@ -1,5 +1,5 @@
 ISTESTING = true
-require "./src/hangman.rb"
+require "./hangman.rb"
 require "test/unit"
 
 class Test_hangman_game < Test::Unit::TestCase
