@@ -1,4 +1,3 @@
-
 def check_valid_word(str)
-    true
+    str.is_a?(String)
 end
