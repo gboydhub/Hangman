@@ -26,7 +26,7 @@ while gamerunning do
     while playloop do
         system 'clear' or system 'cls'
         puts <<-GAME_BOARD
-            _____________
+             _____________
             /  ___________\\
             | /      |                          
             ||       O                      #{gameboard}
@@ -39,7 +39,7 @@ while gamerunning do
         GAME_BOARD
 
         puts "\nGuesses left: #{6-numberwrong}"
-        puts "Pick a letter:"
+        print "Pick a letter: "
         input = STDIN.getch
         wronganswer = false
         unless check_valid_guess?(input); wronganswer = true end
@@ -53,7 +53,7 @@ while gamerunning do
         else
             numberwrong += 1
         end
-        if numberwrong > 6
+        if numberwrong >= 6
             playloop = false
             lostgame = true
         end
@@ -66,7 +66,7 @@ while gamerunning do
     if lostgame
         system 'clear' or system 'cls'
         puts <<-PRETTY_ART
-            _____________
+             _____________
             /  ___________\\
             | /      |
             ||       O
@@ -80,7 +80,7 @@ while gamerunning do
         sleep 2
         system 'clear' or system 'cls'
         puts <<-PRETTY_ART
-            _____________
+             _____________
             /  ___________\\
             | /      |
             ||       O
@@ -94,10 +94,10 @@ while gamerunning do
         sleep 1
         system 'clear' or system 'cls'
         puts <<-PRETTY_ART
-            _____________
+             _____________
             /  ___________\\
             | /      |
-            ||       |
+            ||       |      
             ||       O
             ||      /|\\
             ||====# / \\
@@ -105,6 +105,35 @@ while gamerunning do
             ||    #
         ===========
         PRETTY_ART
+        sleep 2
+        system 'clear' or system 'cls'
+        puts <<-PRETTY_ART
+             _____________
+            /  ___________\\
+            | /      |
+            ||       |      YOU LOSE!      
+            ||       O
+            ||      /|\\
+            ||====# / \\
+            ||    #
+            ||    #
+        ===========
+        PRETTY_ART
+    else
+        system 'clear' or system 'cls'
+        puts <<-PRETTY_ART
+             _____________
+            /  ___________\\
+            | /      |
+            ||      
+            ||      
+            ||                        YOU WIN!
+            ||===========       \\O/
+            ||                   |
+            ||                  / \\   
+        ==============================
+        PRETTY_ART
     end
-    gamerunning = false
+    puts 'Press \'P\' to play again!'
+    if STDIN.getch.downcase != 'p' then gamerunning = false end
 end
