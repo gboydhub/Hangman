@@ -1,13 +1,14 @@
 require './tested_functions.rb'
 require 'io/console'
 
-puts "Welcome to Hangman"
+system 'clear' or system 'cls'
+puts "Welcome to Hangman [2018 Gary Boyd]\n\n"
 
 gamerunning = true
 while gamerunning do
     userinput = 0
     while !check_valid_word?(userinput) do
-        print "Player 1[Executioner], choose a word: "
+        print "Executioner, choose a word: "
         userinput = gets.chomp
     end
 
@@ -18,6 +19,7 @@ while gamerunning do
     end
 
     stickmanprogress = [' ', ' ', ' ', ' ', ' ', ' ']
+    stickmanfinal = ['O', '|', '/', '\\', '/', '\\']
     numberwrong = 0
     numbercorrect = 0
     
@@ -29,9 +31,9 @@ while gamerunning do
              _____________
             /  ___________\\
             | /      |                          
-            ||       O                      #{gameboard.join(' ')}
-            ||      /|\\
-            ||      / \\
+            ||       #{stickmanprogress[0]}                      #{gameboard.join(' ')}
+            ||      #{stickmanprogress[2]}#{stickmanprogress[1]}#{stickmanprogress[3]}
+            ||      #{stickmanprogress[4]} #{stickmanprogress[5]}
             ||===========
             ||
             ||
@@ -51,6 +53,7 @@ while gamerunning do
                 end
             end
         else
+            stickmanprogress[numberwrong] = stickmanfinal[numberwrong]
             numberwrong += 1
         end
         if numberwrong >= 6
