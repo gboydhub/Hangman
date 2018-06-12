@@ -38,21 +38,20 @@ while gamerunning do
         ===========
         GAME_BOARD
 
+        puts "\nGuesses left: #{6-numberwrong}"
+        puts "Pick a letter:"
         input = STDIN.getch
-        puts "\nYou picked: #{input}"
         wronganswer = false
         unless check_valid_guess?(input); wronganswer = true end
         if !wronganswer && answerboard.include?(input)
             answerboard.each_with_index do |c, i|
-                if c == input; gameboard[i] = c.upcase end
-                numbercorrect += 1
+                if c == input && gameboard[i] != c.upcase
+                    gameboard[i] = c.upcase
+                    numbercorrect += 1
+                end
             end
-        end
-
-        if wronganswer
-            numberwrong += 1
         else
-            numbercorrect += 1
+            numberwrong += 1
         end
         if numberwrong > 6
             playloop = false
@@ -64,46 +63,48 @@ while gamerunning do
         sleep 0.5
     end
 
-    system 'clear' or system 'cls'
-    puts <<-PRETTY_ART
-         _____________
-        /  ___________\\
-        | /      |
-        ||       O
-        ||      /|\\
-        ||      / \\
-        ||===========
-        ||
-        ||
-    ===========
-    PRETTY_ART
-    sleep 2
-    system 'clear' or system 'cls'
-    puts <<-PRETTY_ART
-         _____________
-        /  ___________\\
-        | /      |
-        ||       O
-        ||      /|\\
-        ||      / \\
-        ||====#
-        ||    #
-        ||    #
-    ===========
-    PRETTY_ART
-    sleep 1
-    system 'clear' or system 'cls'
-    puts <<-PRETTY_ART
-         _____________
-        /  ___________\\
-        | /      |
-        ||       |
-        ||       O
-        ||      /|\\
-        ||====# / \\
-        ||    #
-        ||    #
-    ===========
-    PRETTY_ART
+    if lostgame
+        system 'clear' or system 'cls'
+        puts <<-PRETTY_ART
+            _____________
+            /  ___________\\
+            | /      |
+            ||       O
+            ||      /|\\
+            ||      / \\
+            ||===========
+            ||
+            ||
+        ===========
+        PRETTY_ART
+        sleep 2
+        system 'clear' or system 'cls'
+        puts <<-PRETTY_ART
+            _____________
+            /  ___________\\
+            | /      |
+            ||       O
+            ||      /|\\
+            ||      / \\
+            ||====#
+            ||    #
+            ||    #
+        ===========
+        PRETTY_ART
+        sleep 1
+        system 'clear' or system 'cls'
+        puts <<-PRETTY_ART
+            _____________
+            /  ___________\\
+            | /      |
+            ||       |
+            ||       O
+            ||      /|\\
+            ||====# / \\
+            ||    #
+            ||    #
+        ===========
+        PRETTY_ART
+    end
     gamerunning = false
 end
