@@ -8,5 +8,5 @@ def check_valid_word?(str)
 end
 
 def check_valid_guess?(input)
-    true
+    check_valid_word?(input)
 end
