@@ -1,6 +1,5 @@
-require './hangman.rb'
+require './tested_functions.rb'
 require 'test/unit'
-ISTESTING = true
 
 
 class TestHangmanGame < Test::Unit::TestCase
@@ -12,6 +11,7 @@ class TestHangmanGame < Test::Unit::TestCase
         assert_false(check_valid_word?('[]`12-039`]'))
         assert_false(check_valid_word?('\n\"2323 ><?>~!@'))
         assert_false(check_valid_word?('This is a sentence, actually.'))
+        assert_false(check_valid_word?(''))
     end
 
     def test_check_valid_guess
