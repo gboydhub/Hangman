@@ -7,5 +7,9 @@ class TestHangmanGame < Test::Unit::TestCase
         assert_true(check_valid_word?('hello'))
         assert_false(check_valid_word?(2))
         assert_false(check_valid_word?('h3i'))
+        assert_false(check_valid_word?(' 32re'))
+        assert_false(check_valid_word?('[]`12-039`]'))
+        assert_false(check_valid_word?('\n\"2323 ><?>~!@'))
+        assert_false(check_valid_word?('This is a sentence, actually.'))
     end
 end
