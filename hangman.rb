@@ -8,5 +8,8 @@ def check_valid_word?(str)
 end
 
 def check_valid_guess?(input)
-    check_valid_word?(input)
+    if check_valid_word?(input)
+        if input.length == 1 then return true end
+    end
+    return false
 end
