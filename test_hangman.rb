@@ -17,5 +17,9 @@ class TestHangmanGame < Test::Unit::TestCase
         assert_true(check_valid_guess?('a'))
         assert_false(check_valid_guess?('1'))
         assert_false(check_valid_guess?('hi'))
+        assert_false(check_valid_guess?('`12  `'))
+        assert_false(check_valid_guess?(23))
+        assert_false(check_valid_guess?(true))
+        assert_false(check_valid_guess?('] [][ 0-'))
     end
 end
