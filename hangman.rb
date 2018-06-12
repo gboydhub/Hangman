@@ -29,7 +29,7 @@ while gamerunning do
              _____________
             /  ___________\\
             | /      |                          
-            ||       O                      #{gameboard}
+            ||       O                      #{gameboard.join(' ')}
             ||      /|\\
             ||      / \\
             ||===========
