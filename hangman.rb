@@ -10,3 +10,7 @@ def check_valid_guess?(input)
 
     false
 end
+
+if defined?(ISTESTING); exit end
+
+puts "Welcome to Hangman"

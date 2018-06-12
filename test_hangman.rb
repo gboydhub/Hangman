@@ -1,6 +1,7 @@
-ISTESTING = true
 require './hangman.rb'
 require 'test/unit'
+ISTESTING = true
+
 
 class TestHangmanGame < Test::Unit::TestCase
     def test_check_valid_word
