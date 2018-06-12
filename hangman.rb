@@ -22,6 +22,7 @@ while gamerunning do
     numbercorrect = 0
     
     playloop = true
+    lostgame = false
     while playloop do
         system 'clear' or system 'cls'
         puts <<-GAME_BOARD
@@ -38,6 +39,7 @@ while gamerunning do
         GAME_BOARD
 
         input = STDIN.getch
+        puts "\nYou picked: #{input}"
         wronganswer = false
         unless check_valid_guess?(input); wronganswer = true end
         if !wronganswer && answerboard.include?(input)
@@ -49,10 +51,17 @@ while gamerunning do
 
         if wronganswer
             numberwrong += 1
+        else
+            numbercorrect += 1
         end
         if numberwrong > 6
             playloop = false
+            lostgame = true
         end
+        if numbercorrect == answerboard.length
+            playloop = false
+        end
+        sleep 0.5
     end
 
     system 'clear' or system 'cls'
