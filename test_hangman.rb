@@ -14,6 +14,6 @@ class TestHangmanGame < Test::Unit::TestCase
     end
 
     def test_check_valid_guess
-        assert_true('a')
+        assert_true(check_valid_guess?('a'))
     end
 end

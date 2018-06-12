@@ -6,3 +6,7 @@ def check_valid_word?(str)
 
     return false
 end
+
+def check_valid_guess?(input)
+    true
+end
