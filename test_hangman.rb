@@ -12,4 +12,8 @@ class TestHangmanGame < Test::Unit::TestCase
         assert_false(check_valid_word?('\n\"2323 ><?>~!@'))
         assert_false(check_valid_word?('This is a sentence, actually.'))
     end
+
+    def test_check_valid_guess
+        assert_true('a')
+    end
 end
