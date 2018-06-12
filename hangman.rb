@@ -10,5 +10,46 @@ while gamerunning do
         userinput = gets.chomp
     end
 
-    puts "Selected valid word!"
+    system 'clear' or system 'cls'
+    puts <<-PRETTY_ART
+         _____________
+        /  ___________\\
+        | /      |
+        ||       O
+        ||      /|\\
+        ||      / \\
+        ||===========
+        ||
+        ||
+    ===========
+    PRETTY_ART
+    sleep 2
+    system 'clear' or system 'cls'
+    puts <<-PRETTY_ART
+         _____________
+        /  ___________\\
+        | /      |
+        ||       O
+        ||      /|\\
+        ||      / \\
+        ||====#
+        ||    #
+        ||    #
+    ===========
+    PRETTY_ART
+    sleep 1
+    system 'clear' or system 'cls'
+    puts <<-PRETTY_ART
+         _____________
+        /  ___________\\
+        | /      |
+        ||       |
+        ||       O
+        ||      /|\\
+        ||====# / \\
+        ||    #
+        ||    #
+    ===========
+    PRETTY_ART
+    gamerunning = false
 end
